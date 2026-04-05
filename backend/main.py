@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from utils.logger import get_logger
+from utils.embeddings import get_model
+
 import time
 
 logger = get_logger("main_app")
@@ -30,6 +32,11 @@ async def log_requests(request: Request, call_next):
 @app.get("/health")
 def health_check():
     return {"status": "healthy", "version": "1.0.0"}
+
+@app.get("/warmup")
+def warmup():
+    get_model()
+    return {"status": "model loaded"}
 
 from routers import syllabus, test, session, report, profile, quiz_party_ws
 

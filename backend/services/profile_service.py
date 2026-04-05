@@ -174,4 +174,10 @@ START by asking one punchy MCQ question. No introduction needed."""
         raise Exception(f"Could not extract valid JSON. Raw output: {text[:500]}")
 
 profile_sessions: Dict[str, ProfileSessionState] = {}
-agent = PsychAgent()
+agent = None
+
+def get_agent():
+    global agent
+    if agent is None:
+        agent = PsychAgent()
+    return agent

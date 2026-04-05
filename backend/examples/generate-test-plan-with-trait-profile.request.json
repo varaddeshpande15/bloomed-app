@@ -1,0 +1,178 @@
+{
+  "topics": [
+    {
+      "topic": "Unit I Design with HDL",
+      "subtopics": [
+        "Design Flow",
+        "Language constructs",
+        "Data objects",
+        "Data types",
+        "Entity",
+        "Architecture & types of modeling",
+        "Sequential statements",
+        "Concurrent statements",
+        "Packages",
+        "Sub programs",
+        "Attributes",
+        "HDL modeling of Combinational, Sequential circuits and FSM",
+        "Simulations, Synthesis, Efficient coding styles",
+        "Hierarchical and flat designs",
+        "Partitioning for synthesis",
+        "Pipelining",
+        "Resource sharing"
+      ]
+    },
+    {
+      "topic": "Unit II Digital Design and Issues",
+      "subtopics": [
+        "Sequential synchronous machine design",
+        "Moore and Mealy machines",
+        "HDL code for Machines",
+        "FIFO",
+        "Meta-stability and solutions",
+        "Noise margin",
+        "Fan-out",
+        "Skew",
+        "Timing considerations",
+        "Hazards",
+        "Clock distribution",
+        "Clock jitter",
+        "Supply and ground bounce",
+        "Power distribution techniques",
+        "Power optimization",
+        "Interconnect routing techniques",
+        "Wire parasitic",
+        "Signal integrity issues",
+        "I/O architecture"
+      ]
+    },
+    {
+      "topic": "Unit III PLD Architectures and Applications",
+      "subtopics": [
+        "Design Flow",
+        "CPLD Architecture",
+        "Features",
+        "Specifications",
+        "Applications",
+        "FPGA Architecture",
+        "Features",
+        "Specifications",
+        "Applications",
+        "Clock management techniques",
+        "The Simulation and Synthesis Tools",
+        "FPGA synthesis and implementation",
+        "Comparison of CPLD & FPGA"
+      ]
+    },
+    {
+      "topic": "Unit IV Digital CMOS Circuits",
+      "subtopics": [
+        "N-MOS",
+        "P-MOS and CMOS",
+        "MOSFET parasitic",
+        "Technology scaling",
+        "Channel length modulation",
+        "Hot electron effect",
+        "Velocity saturation",
+        "CMOS Inverter",
+        "Device sizing",
+        "CMOS combinational logic design",
+        "Power dissipations",
+        "Power delay product",
+        "Body Effect",
+        "Rise and fall times",
+        "Latch Up effect",
+        "Transmission gates"
+      ]
+    },
+    {
+      "topic": "Unit V Application Specific Integrated Circuits",
+      "subtopics": [
+        "Design Flow",
+        "Cell design specifications",
+        "Spice simulation",
+        "AC and DC analysis",
+        "Transfer Characteristics",
+        "Transient responses",
+        "Noise analysis",
+        "Lambda rules",
+        "Design Rule Check",
+        "Fabrication methods of circuit elements",
+        "Layout of cell",
+        "Library cell designing for NAND & NOR",
+        "Circuit Extraction",
+        "Electrical Rule Check",
+        "Layout Vs. Schematic",
+        "Post-layout Simulation and Parasitic extraction",
+        "Design Issues like Antenna effect",
+        "Electro migration effect",
+        "Cross talk and Drain punch through",
+        "Timing analysis"
+      ]
+    },
+    {
+      "topic": "Unit VI VLSI Testing and Analysis",
+      "subtopics": [
+        "Types of fault",
+        "Need of Design for Testability (DFT)",
+        "DFT Guideline",
+        "Testability",
+        "Fault models",
+        "Path sensitizing",
+        "Test pattern generation",
+        "Sequential circuit test",
+        "Built In Self Test",
+        "JTAG & Boundary scan",
+        "TAP Controller"
+      ]
+    }
+  ],
+  "marking_scheme": {
+    "default_questions": 5
+  },
+  "exam_type": "STANDARD",
+  "trait_profile": {
+    "learning_profile": {
+      "vark": {
+        "primary_style": "Visual",
+        "scores": {
+          "visual": 42,
+          "auditory": 18,
+          "read_write": 28,
+          "kinesthetic": 12
+        },
+        "description": "Learns best with diagrams, block diagrams, and layout schematics."
+      },
+      "growth_mindset_score": 68,
+      "grit_score": 76,
+      "resilience_level": "High"
+    },
+    "big5_analysis": {
+      "openness": {
+        "score": 64,
+        "level": "Moderate",
+        "description": "Comfortable with new tools and abstractions (e.g. HDL, new EDA flows)."
+      },
+      "conscientiousness": {
+        "score": 82,
+        "level": "High",
+        "description": "Strong follow-through on labs, simulations, and design checks."
+      },
+      "extraversion": {
+        "score": 44,
+        "level": "Moderate",
+        "description": "Balanced: fine with solo deep work and short technical discussions."
+      },
+      "agreeableness": {
+        "score": 71,
+        "level": "High",
+        "description": "Collaborative in team design reviews."
+      },
+      "neuroticism": {
+        "score": 36,
+        "level": "Low",
+        "description": "Steady under timing closure and debug pressure."
+      }
+    }
+  }
+}

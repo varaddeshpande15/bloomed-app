@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { z } from "zod";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export type Props = {
   title?: string;

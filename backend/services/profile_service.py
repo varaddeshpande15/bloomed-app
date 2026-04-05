@@ -1,7 +1,7 @@
 import openai
 from typing import List, Dict, Any, Optional
-from backend.models.schemas import ChatMessage, PsychologicalReport, ProfileSessionState
-from backend.config import get_settings
+from models.schemas import ChatMessage, PsychologicalReport, ProfileSessionState
+from config import get_settings
 import json
 import re
 

@@ -1,4 +1,4 @@
-from backend.models.adaptive_context import AdaptiveContext
+from models.adaptive_context import AdaptiveContext
 
 def calculate_confidence(is_correct: bool, time_taken: float, avg_time: float, streak: int) -> float:
     if is_correct and avg_time > 0 and time_taken < (avg_time * 0.7):

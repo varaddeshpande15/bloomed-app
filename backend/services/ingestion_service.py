@@ -5,12 +5,12 @@ from typing import List, Optional
 
 from groq import Groq
 
-from backend.config import settings
-from backend.utils.parser import clean_text, extract_text_from_upload
-from backend.utils.embeddings import generate_embedding
-from backend.models.schemas import SyllabusUploadResponse, TopicBreakdown
-from backend.services.vector_service import VectorService
-from backend.utils.logger import get_logger
+from config import settings
+from utils.parser import clean_text, extract_text_from_upload
+from utils.embeddings import generate_embedding
+from models.schemas import SyllabusUploadResponse, TopicBreakdown
+from services.vector_service import VectorService
+from utils.logger import get_logger
 
 logger = get_logger("ingestion_service")
 vector_service = VectorService()

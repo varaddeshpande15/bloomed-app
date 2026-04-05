@@ -1,17 +1,17 @@
 import time
 
-from backend.models.adaptive_context import AdaptiveContext
-from backend.models.schemas import (
+from models.adaptive_context import AdaptiveContext
+from models.schemas import (
     SubmissionRequest,
     AnswerEvaluationResponse,
     QuestionResponse,
     AdaptationTrace,
 )
-from backend.services.learning_state_service import LearningStateService
-from backend.services.question_strategy import QuestionStrategy
-from backend.services.explainability_service import ExplainabilityService
-from backend.services.question_service import generate_question
-from backend.utils.logger import get_logger
+from services.learning_state_service import LearningStateService
+from services.question_strategy import QuestionStrategy
+from services.explainability_service import ExplainabilityService
+from services.question_service import generate_question
+from utils.logger import get_logger
 
 logger = get_logger("session_service")
 

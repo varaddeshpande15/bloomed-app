@@ -1,8 +1,8 @@
 from typing import List, Dict, Any
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, PointStruct
-from backend.config import settings
-from backend.utils.logger import get_logger
+from config import settings
+from utils.logger import get_logger
 
 logger = get_logger("vector_service")
 

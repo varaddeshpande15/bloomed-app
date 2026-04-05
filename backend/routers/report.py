@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from backend.models.schemas import SessionSummary
-from backend.services.session_service import SessionService
-from backend.services.report_service import generate_session_summary
+from models.schemas import SessionSummary
+from services.session_service import SessionService
+from services.report_service import generate_session_summary
 
 router = APIRouter()
 

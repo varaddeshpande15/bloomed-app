@@ -1,7 +1,7 @@
-from backend.models.adaptive_context import AdaptiveContext
-from backend.adaptive_engine.behavior_detection import detect_behavior
-from backend.adaptive_engine.knowledge_state import update_knowledge_state
-from backend.utils.logger import log_adaptive_event, get_logger
+from models.adaptive_context import AdaptiveContext
+from adaptive_engine.behavior_detection import detect_behavior
+from adaptive_engine.knowledge_state import update_knowledge_state
+from utils.logger import log_adaptive_event, get_logger
 
 logger = get_logger("learning_state_service")
 

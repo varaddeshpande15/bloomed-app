@@ -1,4 +1,4 @@
-from backend.models.adaptive_context import AdaptiveContext
+from models.adaptive_context import AdaptiveContext
 
 def detect_behavior(context: AdaptiveContext, current_time_taken: float, is_correct: bool) -> str:
     """

@@ -5,8 +5,8 @@ import time
 from collections import defaultdict
 from typing import Any, Callable, Dict, List
 
-from backend.models.adaptive_context import AdaptiveContext
-from backend.models.schemas import (
+from models.adaptive_context import AdaptiveContext
+from models.schemas import (
     AggregateBucket,
     LearningDNA,
     QuestionAttemptRecord,
@@ -14,8 +14,8 @@ from backend.models.schemas import (
     SessionTotals,
     TimeAnalytics,
 )
-from backend.services.exam_context_service import get_marks_for_bloom
-from backend.utils.logger import get_logger
+from services.exam_context_service import get_marks_for_bloom
+from utils.logger import get_logger
 
 logger = get_logger("report_service")
 

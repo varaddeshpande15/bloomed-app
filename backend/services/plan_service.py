@@ -1,7 +1,7 @@
-from backend.models.schemas import TestPlanRequest, TestPlanResponse, TestPlanItem
-from backend.services.exam_context_service import get_exam_config
-from backend.services.trait_adapter_service import map_traits
-from backend.utils.logger import get_logger
+from models.schemas import TestPlanRequest, TestPlanResponse, TestPlanItem
+from services.exam_context_service import get_exam_config
+from services.trait_adapter_service import map_traits
+from utils.logger import get_logger
 
 logger = get_logger("plan_service")
 

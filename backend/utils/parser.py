@@ -1,6 +1,6 @@
 import io
 import fitz  # PyMuPDF
-from backend.utils.logger import get_logger
+from utils.logger import get_logger
 
 logger = get_logger("parser_util")
 

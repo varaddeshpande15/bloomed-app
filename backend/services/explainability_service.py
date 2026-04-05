@@ -1,5 +1,5 @@
 from typing import List, Dict, Any
-from backend.models.schemas import DecisionTrace
+from models.schemas import DecisionTrace
 
 class ExplainabilityService:
     @staticmethod

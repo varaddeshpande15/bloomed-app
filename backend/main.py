@@ -2,29 +2,14 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from utils.logger import get_logger
-import asyncio
 import time
 
 logger = get_logger("main_app")
 
 
-def _warmup_model():
-    """Load the embedding model in a background thread so it's ready for the first request."""
-    try:
-        from utils.embeddings import _get_model
-        _get_model()
-        logger.info("Embedding model pre-warm complete")
-    except Exception as e:
-        logger.warning(f"Embedding model pre-warm failed (will retry on first request): {e}")
-
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Kick off model loading in a background thread — the server port is
-    # already bound at this point, so Render's port scan will succeed.
-    loop = asyncio.get_event_loop()
-    loop.run_in_executor(None, _warmup_model)
-    logger.info("Server started — model pre-warming in background")
+    logger.info("Server started — using HF Inference API for embeddings (no local model)")
     yield
 
 

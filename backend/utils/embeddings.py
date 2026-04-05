@@ -1,36 +1,43 @@
-from sentence_transformers import SentenceTransformer
 from typing import List
+import requests
 from config import settings
 from utils.logger import get_logger
 
 logger = get_logger("embeddings_util")
 
-# Lazy singleton — model loads on first use, not at import time.
-# This lets the ASGI server bind its port before the heavy download/load.
-_model = None
-
-
-def _get_model():
-    """Return the cached SentenceTransformer, loading it on first call."""
-    global _model
-    if _model is None:
-        try:
-            logger.info(f"Loading embedding model: {settings.EMBED_MODEL} ...")
-            _model = SentenceTransformer(settings.EMBED_MODEL)
-            logger.info(f"Embedding model loaded successfully: {settings.EMBED_MODEL}")
-        except Exception as e:
-            logger.error(f"Failed to load sentence_transformers: {e}")
-    return _model
+# HuggingFace Inference API endpoint for the embedding model
+_HF_API_URL = f"https://api-inference.huggingface.co/models/sentence-transformers/{settings.EMBED_MODEL}"
 
 
 def generate_embedding(text: str) -> List[float]:
     """
-    Generates embedding locally via sentence-transformers.
+    Generates embedding via the HuggingFace Inference API.
+    Uses the same model (multi-qa-MiniLM-L6-cos-v1) but runs remotely,
+    keeping RAM usage minimal.
     """
-    model = _get_model()
-    if model:
-        # returns numpy array, convert to list
-        return model.encode(text).tolist()
-    else:
-        logger.warning("Faking embedding, model failed to load")
+    token = settings.HF_TOKEN
+    if not token:
+        logger.warning("HF_TOKEN not set — returning zero vector")
+        return [0.01] * settings.VECTOR_DIM
+
+    headers = {"Authorization": f"Bearer {token}"}
+    payload = {"inputs": text}
+
+    try:
+        resp = requests.post(_HF_API_URL, headers=headers, json=payload, timeout=30)
+        resp.raise_for_status()
+        embedding = resp.json()
+
+        # The API returns a list of floats (or nested list for single input)
+        if isinstance(embedding, list):
+            # Single string input → returns [[...]] or [...]
+            if isinstance(embedding[0], list):
+                return embedding[0]
+            return embedding
+
+        logger.error(f"Unexpected HF API response type: {type(embedding)}")
+        return [0.01] * settings.VECTOR_DIM
+
+    except Exception as e:
+        logger.error(f"HuggingFace Inference API call failed: {e}")
         return [0.01] * settings.VECTOR_DIM

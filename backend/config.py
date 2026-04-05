@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     # EMBEDDINGS
     EMBED_MODEL: str = "multi-qa-MiniLM-L6-cos-v1"
     VECTOR_DIM: int = 384
+    HF_TOKEN: str = ""
     
     # LLM/GROQ
     GROQ_API_KEY: str = ""

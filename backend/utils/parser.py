@@ -1,8 +1,6 @@
 import io
 import fitz  # PyMuPDF
 from utils.logger import get_logger
-import os
-
 
 logger = get_logger("parser_util")
 
@@ -36,7 +34,6 @@ def _parse_pdf_native(file_bytes: bytes) -> str:
         doc.close()
 
 
-
 def _parse_pdf_ocr(file_bytes: bytes) -> str:
     """
     Rasterize pages and run Tesseract OCR. Used when the PDF has no text layer (scanned docs).
@@ -44,11 +41,6 @@ def _parse_pdf_ocr(file_bytes: bytes) -> str:
     System: Tesseract OCR on PATH (https://github.com/tesseract-ocr/tesseract)
     Windows build: https://github.com/UB-Mannheim/tesseract/wiki
     """
-
-    if os.getenv("ENABLE_OCR", "false") != "true":
-        logger.warning("OCR disabled in this environment")
-        return ""
-
     try:
         import pytesseract
         from PIL import Image

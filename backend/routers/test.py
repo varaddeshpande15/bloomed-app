@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from backend_unified.models.schemas import TestPlanRequest, TestPlanResponse
-from backend_unified.services.plan_service import generate_test_plan
+from backend.models.schemas import TestPlanRequest, TestPlanResponse
+from backend.services.plan_service import generate_test_plan
 
 router = APIRouter()
 

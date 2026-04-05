@@ -1,5 +1,5 @@
 /**
- * Mirrors `backend_unified/services/trait_adapter_service.map_traits` so the UI and
+ * Mirrors `backend/services/trait_adapter_service.map_traits` so the UI and
  * explain/roadmap flows stay aligned with test-plan adaptation.
  */
 export type MappedTraits = {

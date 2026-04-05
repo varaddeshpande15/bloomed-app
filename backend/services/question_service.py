@@ -2,9 +2,9 @@ from typing import List, Optional
 import uuid
 import json
 from groq import Groq
-from backend_unified.config import settings
-from backend_unified.models.schemas import Question
-from backend_unified.utils.logger import get_logger
+from backend.config import settings
+from backend.models.schemas import Question
+from backend.utils.logger import get_logger
 
 logger = get_logger("question_service")
 

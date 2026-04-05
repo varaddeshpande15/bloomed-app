@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer
 from typing import List
-from backend_unified.config import settings
-from backend_unified.utils.logger import get_logger
+from backend.config import settings
+from backend.utils.logger import get_logger
 
 logger = get_logger("embeddings_util")
 

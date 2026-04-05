@@ -1,5 +1,5 @@
-from backend_unified.models.schemas import Question
-from backend_unified.utils.logger import get_logger
+from backend.models.schemas import Question
+from backend.utils.logger import get_logger
 
 logger = get_logger("evaluation_service")
 

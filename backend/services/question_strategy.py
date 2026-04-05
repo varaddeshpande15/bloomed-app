@@ -1,7 +1,7 @@
 from typing import Dict, Any
-from backend_unified.models.adaptive_context import AdaptiveContext
-from backend_unified.adaptive_engine.adaptive_decision_engine import decide_next_step
-from backend_unified.utils.logger import log_adaptive_event
+from backend.models.adaptive_context import AdaptiveContext
+from backend.adaptive_engine.adaptive_decision_engine import decide_next_step
+from backend.utils.logger import log_adaptive_event
 
 class QuestionStrategy:
     @staticmethod

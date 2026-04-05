@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from backend_unified.utils.logger import get_logger
+from backend.utils.logger import get_logger
 import time
 
 logger = get_logger("main_app")
@@ -31,7 +31,7 @@ async def log_requests(request: Request, call_next):
 def health_check():
     return {"status": "healthy", "version": "1.0.0"}
 
-from backend_unified.routers import syllabus, test, session, report, profile, quiz_party_ws
+from backend.routers import syllabus, test, session, report, profile, quiz_party_ws
 
 app.include_router(syllabus.router, prefix="/api/syllabus", tags=["Syllabus"])
 app.include_router(test.router, prefix="/api/test", tags=["Test Plan"])
@@ -47,5 +47,5 @@ if __name__ == "__main__":
     # Ensure current dir is in sys.path
     sys.path.append(str(Path(__file__).resolve().parent.parent))
     
-    from backend_unified.config import settings
-    uvicorn.run("backend_unified.main:app", host=settings.FASTAPI_HOST, port=settings.FASTAPI_PORT, reload=True)
+    from backend.config import settings
+    uvicorn.run("backend.main:app", host=settings.FASTAPI_HOST, port=settings.FASTAPI_PORT, reload=True)

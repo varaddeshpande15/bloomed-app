@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 
-/** Must match `verify_ws_token_simple` in `backend_unified/routers/quiz_party_ws.py`. */
+/** Must match `verify_ws_token_simple` in `backend/routers/quiz_party_ws.py`. */
 export function makeQuizPartyWsToken(
   userId: string,
   partyId: string,

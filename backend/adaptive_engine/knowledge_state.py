@@ -1,4 +1,4 @@
-from backend_unified.models.adaptive_context import AdaptiveContext
+from backend.models.adaptive_context import AdaptiveContext
 
 def update_knowledge_state(context: AdaptiveContext, time_taken: float, is_correct: bool, current_concept: str):
     """

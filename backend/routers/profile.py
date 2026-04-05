@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Body
 import uuid
 import time
-from backend_unified.models.schemas import ChatMessage, ProfileSessionState, PsychologicalReport
-from backend_unified.services.profile_service import agent, profile_sessions
+from backend.models.schemas import ChatMessage, ProfileSessionState, PsychologicalReport
+from backend.services.profile_service import agent, profile_sessions
 
 router = APIRouter()
 

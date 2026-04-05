@@ -1,10 +1,10 @@
 from fastapi import APIRouter
-from backend_unified.models.schemas import SubmissionRequest, AnswerEvaluationResponse, Question, QuestionResponse, SessionStartRequest, SessionNextRequest
-from backend_unified.services.session_service import SessionService
+from backend.models.schemas import SubmissionRequest, AnswerEvaluationResponse, Question, QuestionResponse, SessionStartRequest, SessionNextRequest
+from backend.services.session_service import SessionService
 
 router = APIRouter()
 
-from backend_unified.services.exam_context_service import get_exam_config
+from backend.services.exam_context_service import get_exam_config
 
 @router.post("/start", status_code=200)
 def start_session(request: SessionStartRequest):

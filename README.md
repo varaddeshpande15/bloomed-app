@@ -11,7 +11,7 @@
 
 This repository implements **BloomEd**, an AI-powered adaptive learning platform: personalized learning roadmaps, adaptive practice tests driven by a Python intelligence engine, psychological learning profiles, and a multiplayer **Quiz Party** mode with realtime updates.
 
-The product is exposed as a **Next.js** web app (`frontend/`) that authenticates users with **Clerk**, persists data in **PostgreSQL** via **Drizzle ORM**, and proxies adaptive AI workloads to a **FastAPI** service (`backend_unified/`) using **Groq** LLMs, **sentence-transformers** embeddings, and **Qdrant** for syllabus vector search.
+The product is exposed as a **Next.js** web app (`frontend/`) that authenticates users with **Clerk**, persists data in **PostgreSQL** via **Drizzle ORM**, and proxies adaptive AI workloads to a **FastAPI** service (`backend/`) using **Groq** LLMs, **sentence-transformers** embeddings, and **Qdrant** for syllabus vector search.
 
 ---
 
@@ -20,7 +20,7 @@ The product is exposed as a **Next.js** web app (`frontend/`) that authenticates
 | Path | Role |
 |------|------|
 | `frontend/` | Next.js 16 app: UI, `/api/*` routes (including `/api/bloom/*` → FastAPI), Drizzle schema and migrations workflow |
-| `backend_unified/` | FastAPI app: syllabus ingestion, test plans, adaptive session loop, reports, psychological profiling, Quiz Party WebSocket API |
+| `backend/` | FastAPI app: syllabus ingestion, test plans, adaptive session loop, reports, psychological profiling, Quiz Party WebSocket API |
 | `frontend/supabase/` | Reference SQL (`schema.sql`, migration helpers) aligned with the Postgres schema |
 
 ---
@@ -52,7 +52,7 @@ The product is exposed as a **Next.js** web app (`frontend/`) that authenticates
 - **Node.js** (compatible with Next.js 16 / lockfile)
 - **Python 3.10+** (for FastAPI)
 - **PostgreSQL** reachable from the frontend app (connection string in env for Drizzle)
-- **Qdrant** and **Groq** API access for full adaptive + RAG behavior (per `backend_unified/config.py`)
+- **Qdrant** and **Groq** API access for full adaptive + RAG behavior (per `backend/config.py`)
 
 ---
 
@@ -68,7 +68,7 @@ Configure secrets in local env files (not committed):
 - `NEXT_PUBLIC_QUIZ_WS_URL` — optional override for Quiz Party WebSocket URL
 - Any AI keys required by your Next.js API routes (e.g. Google/OpenAI as used in the app)
 
-**Backend (`backend_unified/`)** — See `config.py`:
+**Backend (`backend/`)** — See `config.py`:
 
 - `GROQ_API_KEY`, `MODEL_NAME`
 - `QDRANT_URL`, `QDRANT_API_KEY`, `COLLECTION_NAME`
@@ -82,11 +82,11 @@ Configure secrets in local env files (not committed):
 **1. Backend**
 
 ```bash
-cd backend_unified
+cd backend
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-python -m backend_unified.main
+python -m backend.main
 ```
 
 Health check: `GET http://127.0.0.1:8000/health` (default port from settings).
@@ -107,7 +107,7 @@ Open the app at the URL printed by Next (typically `http://localhost:3000`).
 
 ## API surface (FastAPI)
 
-Routers mounted in `backend_unified/main.py`:
+Routers mounted in `backend/main.py`:
 
 | Prefix | Purpose |
 |--------|---------|

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, File, HTTPException, UploadFile
 
-from backend_unified.models.schemas import SyllabusUploadResponse
-from backend_unified.services.ingestion_service import process_syllabus
+from backend.models.schemas import SyllabusUploadResponse
+from backend.services.ingestion_service import process_syllabus
 
 router = APIRouter()
 

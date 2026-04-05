@@ -5,12 +5,12 @@ from typing import List, Optional
 
 from groq import Groq
 
-from backend_unified.config import settings
-from backend_unified.utils.parser import clean_text, extract_text_from_upload
-from backend_unified.utils.embeddings import generate_embedding
-from backend_unified.models.schemas import SyllabusUploadResponse, TopicBreakdown
-from backend_unified.services.vector_service import VectorService
-from backend_unified.utils.logger import get_logger
+from backend.config import settings
+from backend.utils.parser import clean_text, extract_text_from_upload
+from backend.utils.embeddings import generate_embedding
+from backend.models.schemas import SyllabusUploadResponse, TopicBreakdown
+from backend.services.vector_service import VectorService
+from backend.utils.logger import get_logger
 
 logger = get_logger("ingestion_service")
 vector_service = VectorService()
@@ -93,7 +93,7 @@ def process_syllabus(
     topics: List[TopicBreakdown] = []
     if not (settings.GROQ_API_KEY or "").strip():
         logger.error("GROQ_API_KEY is not set")
-        raise ValueError("Server misconfiguration: GROQ_API_KEY is missing. Set it in backend_unified/.env")
+        raise ValueError("Server misconfiguration: GROQ_API_KEY is missing. Set it in backend/.env")
 
     try:
         client = Groq(api_key=settings.GROQ_API_KEY)

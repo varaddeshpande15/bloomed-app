@@ -1,6 +1,6 @@
 from typing import Dict, Any, Tuple, List
-from backend_unified.models.adaptive_context import AdaptiveContext
-from backend_unified.adaptive_engine.learning_score_engine import calculate_learning_score
+from backend.models.adaptive_context import AdaptiveContext
+from backend.adaptive_engine.learning_score_engine import calculate_learning_score
 
 def score_to_bloom(score: float) -> str:
     """Maps a normalized 0-1 value to Bloom's Taxonomy."""

@@ -2,8 +2,7 @@
  * Single fallback for Google-backed APIs (Gemini, YouTube Data API v3) when env vars are unset.
  * Prefer setting GOOGLE_API_KEY or YOUTUBE_API_KEY in .env.local in production.
  */
-export const GOOGLE_API_KEY_FALLBACK =
-  "AIzaSyCJAi1G34tGSLivpCZ8kGVhIUOYrmpK9eg";
+export const GOOGLE_API_KEY_FALLBACK = "";
 
 /** Gemini / Google Generative AI — optional request key overrides env. */
 export function resolveGeminiApiKey(requestApiKey?: string | null): string {

@@ -1,12 +1,3 @@
-# Team-NextGenInnovators
-#Team Members - 
-   1. Sushant Jadhav
-   2. Tejas Surve
-   3. Varad Deshpande
-   4. Sakshi Ippe
-
----
-
 ## BloomEd — project overview
 
 This repository implements **BloomEd**, an AI-powered adaptive learning platform: personalized learning roadmaps, adaptive practice tests driven by a Python intelligence engine, psychological learning profiles, and a multiplayer **Quiz Party** mode with realtime updates.
